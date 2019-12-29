@@ -1,1 +1,17 @@
 <p>numbers-game works!</p>
+
+<form (ngSubmit)="getNumbersSolutions()">
+    <input type="text" [formControl]='numbers' class="form-control" title="Enter the numbers"/>
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>
+
+<table>
+    <tr *ngFor="let result of results">
+        <td>{{result.solution}}</td>
+        <td> = </td>
+        <td>{{result.actual}}</td>
+        <td *ngIf="result.closeness == 0">Spot on!</td>
+        <td *ngIf="result.closeness != 0">({{result.closeness}} away)</td>
+    </tr>
+  </table>
+  
